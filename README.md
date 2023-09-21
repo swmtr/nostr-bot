@@ -91,7 +91,7 @@ crontab -e
 Add the following into it.
 
 ```
-0 3 * * * /ABSOLUTE PATH TO YOUR PYTHON FILE/./nostrpost.sh >> /ABSOLUTE PATH TO YOUR CRONLOG FILE 2>&1
+0 3 * * * /ABSOLUTE PATH TO YOUR PYTHON FILE/nostrpost.sh >> /ABSOLUTE PATH TO YOUR CRONLOG FILE 2>&1
 ```
 
 Don't forget to replace the path to your bash script file and to the location where you want the log. 
