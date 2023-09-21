@@ -1,8 +1,11 @@
 # Nostr Bot Poster
 
-These instructions will help you to get started with creating your own nostr bot to automate posting your predefined posts. Just follow: npub1wuj7ent0p42n9v8awdzl2sfanfj4u2k7dwz09ranqd7fwsz5qpgquc92rq to see it in action.
+These instructions will help you to get started with creating your own nostr bot to automate posting your predefined posts. The bot basically reads a line of text from a file and posts it to Nostr. If you run out of lines to post or are about to, it will notify you on Telegram. 
 
-As an option, you can also setup a Telegram bot alert when you are running out of content to post.
+To see it in action, just follow:
+```
+npub1wuj7ent0p42n9v8awdzl2sfanfj4u2k7dwz09ranqd7fwsz5qpgquc92rq
+```
 
 ## Pre-requsites
 
@@ -65,7 +68,12 @@ Make sure that your Noscl has the correct hex private key (probably some testing
 noscl setprivate <key>
 ```
 
-When you are ready, just run:
+Connect to whatever relays you want:
+```
+noscl relay add <your relay>
+```
+
+When you are ready, just run the following file and watch the magic happen:
 ```
 ./nostrpost.sh
 ```
@@ -83,12 +91,12 @@ crontab -e
 Add the following into it.
 
 ```
-30 * * * * /ABSOLUTE PATH TO YOUR PYTHON FILE/./nostrpost.sh >> /ABSOLUTE PATH TO YOUR CRONLOG FILE 2>&1
+0 3 * * * /ABSOLUTE PATH TO YOUR PYTHON FILE/./nostrpost.sh >> /ABSOLUTE PATH TO YOUR CRONLOG FILE 2>&1
 ```
 
-Don't forget to replace the path to your python file and to the location where you want the log. 
+Don't forget to replace the path to your bash script file and to the location where you want the log. 
 
-This cron schedule will execute the specified command at the 30th minute of every hour.
+This cron schedule will execute the specified command at 3am every day.
 
 # Extras
 
